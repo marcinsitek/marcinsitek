@@ -10,3 +10,4 @@ Table of Contents:
 * [A/B Testing: Classical methods](https://github.com/marcinsitek/marcinsitek/tree/main/ab-testing) (`ab-testing`) 
 * [A/B Testing: Bootstrap methods](https://github.com/marcinsitek/marcinsitek/tree/main/ab-testing) (`ab-testing`) 
 * [A/B Testing: CUPED](https://github.com/marcinsitek/marcinsitek/tree/main/ab-testing) (`ab-testing`) 
+* [Time Series Analysis: Optimal Fractional Differentiation](https://github.com/marcinsitek/marcinsitek/tree/main/fractional-diff) (`fractional-diff`) 
