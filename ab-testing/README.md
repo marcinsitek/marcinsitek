@@ -1,14 +1,14 @@
 # ab-testing
 
 ## Introduction
----
+
 The goal of this project is to showcase a demo implementation of methods used for validating results of A/B tests. 
 The project is outlined as follows: 
 * `*.ipynb` files demonstrate various methods
 * `data_generator.py` contains the `DataGenerator()` class
 
 ## Data generating process
----
+
 Main assumptions:
 * context: mobile game players making in-app purchases
 * players:  $i=1, ..., N$ where $N = 10000$
@@ -20,7 +20,7 @@ Main assumptions:
 * see details in `data_generator.py`
 
 ## Methods
----
+
 | File              | Method                          | Reference        |
 | ----------------- | ------------------------------- | ------------------ |
 | `classical.ipynb` | Two-sample test for means       | [1]|
@@ -31,7 +31,7 @@ Main assumptions:
 | `cuped.ipynb`     | CUPED                           | [4]|
 
 ## Reference
----
+
 * [1] Janina Jóźwiak, Jarosław Podgórski, 'Statystyka od podstaw' (2022) 
 * [2] 'Pearson's chi-squared test' (2003) Wikipedia. Available [here](https://en.wikipedia.org/wiki/Pearson%27s_chi-squared_test)
 * [3] Davison, A.C. and Hinkley, D.V. (1997) Bootstrap Methods and Their Application, Cambridge University Press.

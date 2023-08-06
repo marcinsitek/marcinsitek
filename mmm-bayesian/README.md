@@ -1,7 +1,7 @@
 # mmm-bayesian
 
 ## Introduction
----
+
 The goal of this project is to showcase a demo implementation of a media-mix model using a Bayesian approach. 
 The project is outlined as follows: 
 * `demo.ipynb` file demonstrates the logic of the approach
@@ -13,11 +13,11 @@ Caveats:
 * Further analysis and tuning is required
 
 ## Business Context
----
+
 Media mix modeling (MMM) is an analytical method used to measure the impact of marketing activities on a KPI e.g. conversions, revenue. It can be used to optimize advertising mix in the absence of deterministic attribution. More information can be found in [1]. From the statistical standpoint it is a regression problem.
 
 ## Data 
----
+
 Key information:
 * Dataset provided as part of the Robyn package [2]
 * Weekly data  $t=1, ..., N$ where $N = 208$
@@ -27,7 +27,7 @@ Key information:
 * Inserted into an SQLite database: *data.db*
 
 ## Model
----
+
 Model specification follows [3] and [4] i.e. the target $y_{t}$ variable is modelled by the following equation:
 $$y_{t} = \tau + \sum_{m=1}^{M}\beta_{m}x_{t,m}^{*}+\sum_{c=1}^{C}\gamma_{c}z_{t,c}+\epsilon_{t}$$
 where:
@@ -41,7 +41,7 @@ where:
 * Seasonality is not addressed
 
 ## Fitting
----
+
 The optimal parameters $\alpha$, $\theta$, $a_{i}$ and $b_{i}$ for $i = 1, .., M$ are found using methods for Bayesian modelling from `PyMC3`, see `model.py`
 
 The assumed a priori parameter distributions are the following:
@@ -54,13 +54,13 @@ The assumed a priori parameter distributions are the following:
 Variables are scaled using `MinMaxScaler()` from `scikit-learn`.
 
 ## Performance
----
+
 Model performance is assessed using:
 * a hold-out test set corresponding to the last 20% of observations: `train_test_split(..., shuffle=False, test_size=0.2, ...)`
 * 4 performance metrics: $R^{2}$, *RMSE*, *NRMSE*, *MAPE*, *SMAPE* which are implemented in `metrics.py`
 
 ## Reference
----
+
 * [1] 'Media mix modeling (MMM)' (2023) AppsFlyer . Available [here](https://www.appsflyer.com/glossary/media-mix-modeling/)
 * [2] Bernardo Lares (2023), 'Robyn'. More information [here](https://github.com/facebookexperimental/Robyn) and [here](https://cran.rstudio.com/web/packages/Robyn/Robyn.pdf)
 * [3] Yueqing Wang, Yuxue Jin, Yunting Sun, David Chan, Jim Koehler (2017), 'A Hierarchical Bayesian Approach to Improve Media Mix Models

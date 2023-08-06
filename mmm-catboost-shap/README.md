@@ -1,7 +1,7 @@
 # mmm-ridge
 
 ## Introduction
----
+
 The goal of this project is to showcase a demo implementation of a media-mix model using gradient boosting decision trees (`CatBoost`) and estimated Shapley values (`SHAP`). The idea comes from [2].
 The project is outlined as follows: 
 * `demo.ipynb` file demonstrates the logic of the approach
@@ -13,11 +13,11 @@ Caveats:
 * Further analysis and tuning is required
 
 ## Business Context
----
+
 Media mix modeling (MMM) is an analytical method used to measure the impact of marketing activities on a KPI e.g. conversions, revenue. It can be used to optimize advertising mix in the absence of deterministic attribution. More information can be found in [1]. From the statistical standpoint it is a regression problem where the effect of each regressor on the KPI should be obtained.
 
 ## Data 
----
+
 Key information:
 * Dataset provided as part of the Robyn package [2]
 * Weekly data  $t=1, ..., N$ where $N = 208$
@@ -27,7 +27,7 @@ Key information:
 * Inserted into an SQLite database: *data.db*
 
 ## Model
----
+
 Model specification follows [3] i.e. the target $y_{t}$ variable is modelled by the following function:
 $$y_{t} = F(x_{t,1}^{*} + , ... , + x_{t,M}^{*};z_{t,1} + , ... , + z_{t,C}; params)+\epsilon_{t}$$
 where:
@@ -40,7 +40,7 @@ where:
 * Seasonality is not addressed 
 
 ## Fitting
----
+
 The optimal parameters $params$ are found using `RandomizedSearchCV` with `TimeSeriesSplit` from `scikit-learn`:
 ```
 pipe = Pipeline([
@@ -68,13 +68,13 @@ The parameters and their assumed prior distributions are the following:
 The metric being optimized during cross validation is $MAE$
 
 ## Performance
----
+
 Model performance is assessed using:
 * a hold-out test set corresponding to the last 20% of observations: `train_test_split(..., shuffle=False, test_size=0.2, ...)`
 * 4 performance metrics: $R^{2}$, *RMSE*, *NRMSE*, *MAPE*, *SMAPE* which are implemented in `metrics.py`
 
 ## Reference
----
+
 * [1] 'Media mix modeling (MMM)' (2023) AppsFlyer . Available [here](https://www.appsflyer.com/glossary/media-mix-modeling/)
 * [2] Kisilevich S., 'Improving Marketing Mix Modeling Using Machine Learning Approaches' (2022), Towards Data Science. Available [here](https://towardsdatascience.com/improving-marketing-mix-modeling-using-machine-learning-approaches-25ea4cd6994b);
 * [3] Yuxue Jin, Yueqing Wang, Yunting Sun, David Chan, Jim Koehler (2017), 'Bayesian Methods for Media Mix Modeling with Carryover and Shape Effects', Google Inc
