@@ -1,0 +1,20 @@
+name: cpi-prediction
+
+# python_env: python_env.yaml
+# or
+# conda_env: my_env.yaml
+# or
+# docker_env:
+#    image:  mlflow-docker-example
+
+entry_points:
+  train:
+    parameters:
+      date_from: { type: str }
+      date_to: { type: str }
+    command: "python3 -m cpi_prediction train"
+  update_and_train:
+    parameters:
+      date_from: { type: str }
+      date_to: { type: str }
+    command: "python3 -m cpi_prediction update_and_train"
